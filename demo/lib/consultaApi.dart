@@ -15,7 +15,7 @@ class _homeState extends State<home> {
 
   Future<void> consultaDatos() async{
 
-    final url=Uri.parse("http://10.190.80.111/cliente");
+    final url=Uri.parse("http://10.190.80.47/cliente");
     final respuesta = await HP.get(url);
     if (respuesta.statusCode==200){ //es 200 si la conexion es correcta
       print('conectado exitosamente');
@@ -41,7 +41,8 @@ class _homeState extends State<home> {
       appBar: AppBar(
         title: Text('Consulta Datos'),
       ),
-      body: ListView.builder(itemCount: datos.length,
+      body:
+      ListView.builder(itemCount: datos.length,
         itemBuilder: (context,index){
           final item=datos[index];
           return ListTile(
@@ -49,11 +50,10 @@ class _homeState extends State<home> {
             subtitle: Row(
               children: [
                 Text(item['nombre']),
+                SizedBox(height: 10,),
                 Text(item['apellido']),
+                SizedBox(height: 10,),
                 Text(item['correo']),
-                Text(item['telefono']),
-                Text(item['direccion']),
-                Text(item['genero']),
               ],
             ),
 

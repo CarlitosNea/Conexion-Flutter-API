@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:demo/consultaApi.dart';
+import 'package:demo/insertarDatos.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: home(),
+      home: Insertar(),
     );
   }
 }
