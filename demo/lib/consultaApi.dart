@@ -15,7 +15,7 @@ class _homeState extends State<home> {
 
   Future<void> consultaDatos() async{
 
-    final url=Uri.parse("http://10.190.80.47/cliente");
+    final url=Uri.parse("http://10.190.82.208/cliente");
     final respuesta = await HP.get(url);
     if (respuesta.statusCode==200){ //es 200 si la conexion es correcta
       print('conectado exitosamente');
