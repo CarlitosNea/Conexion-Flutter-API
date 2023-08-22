@@ -26,6 +26,17 @@ class _InsertarUserState extends State<InsertarUser> {
   final TextEditingController _rolController = TextEditingController();
   final TextEditingController _documentoController = TextEditingController();
 
+
+  void _pickImage() async{
+    final pickedImage = await ImagePicker().;
+    if (pickedImage != null){
+      setState(() {
+        _image = File(pickedImage.path);
+      });
+    }
+  }
+
+
   void _enviarFormulario() async{
     if(_formkey.currentState!.validate()){
       final String apiUrl="http://10.190.82.208/registro";
