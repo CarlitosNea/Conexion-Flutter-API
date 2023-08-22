@@ -26,9 +26,10 @@ class _InsertarUserState extends State<InsertarUser> {
   final TextEditingController _rolController = TextEditingController();
   final TextEditingController _documentoController = TextEditingController();
 
+  File? _image;
 
   void _pickImage() async{
-    final pickedImage = await ImagePicker().;
+    final pickedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedImage != null){
       setState(() {
         _image = File(pickedImage.path);
@@ -52,7 +53,7 @@ class _InsertarUserState extends State<InsertarUser> {
         'is_active':true,
         'date_joined':"2023/07/27",
         'rol':_rolController.text,
-        'imagen':null,
+        base64Encode(_image!.readAsBytesSync()) : null,
         'documento':_documentoController.text,
       };
 
@@ -164,6 +165,13 @@ class _InsertarUserState extends State<InsertarUser> {
                   return null;
                 },
               ),
+              _image != null
+                  ? Image.file(_image!,height: 200, width: 300)
+                  :Container(),
+              ElevatedButton(
+                  onPressed: _pickImage,
+                  child: Text('seleccionar imagen'),
+              ),
               ElevatedButton(
                   onPressed: _enviarFormulario,
                   child: Text("Enviar datos")
@@ -174,4 +182,7 @@ class _InsertarUserState extends State<InsertarUser> {
       ),
     );
   }
+}
+
+class _image {
 }

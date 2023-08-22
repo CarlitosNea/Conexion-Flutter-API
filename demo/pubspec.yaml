@@ -31,7 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
   http:
-  image_picker:
+  image_picker:  ^1.0.2
   intl:
 
   # The following adds the Cupertino Icons font to your application.
